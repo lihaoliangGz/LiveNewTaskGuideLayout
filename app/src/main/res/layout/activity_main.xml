@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--顶部直播间信息布局-->
+    <RelativeLayout
+        android:id="@+id/rlRoomInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="3dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/llRoomInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginRight="160dp"
+            android:background="@drawable/shape_user_info_bg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/civMasterHead"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/shape_icon" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:gravity="center|start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvRoomName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="不羁的风" />
+
+                <TextView
+                    android:id="@+id/tvOnlineCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    tools:text="123人在线" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFollow"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_attention_bg"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="关注"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--底部输入菜单栏-->
+    <LinearLayout
+        android:id="@+id/llLiveRoomBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="3.5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvInputMsg"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_room_info"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="  来跟主播交谈！"
+            android:textColor="#a0ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!--            <View-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_weight="1" />-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical">
+
+            <ImageView
+                android:id="@+id/ivZPB"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:src="@drawable/icon_live_video_zpb"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="41dp">
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/ivService"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:src="@drawable/icon_default_header" />
+
+            <TextView
+                android:id="@+id/tvShare"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/icon_live_share"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNiceGoods"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/icon_live_nice_goods"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <FrameLayout
+                android:id="@+id/flLike"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp">
+
+                <ImageView
+                    android:id="@+id/ivLike"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_like" />
+
+                <TextView
+                    android:id="@+id/tvPraiseNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/shape_live_praise_count_bg"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lines="1"
+                    android:maxWidth="58dp"
+                    android:minWidth="36dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    tools:text="1211111" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

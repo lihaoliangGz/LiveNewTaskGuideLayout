@@ -1,0 +1,3 @@
+rootProject.name='GuideLayout'
+include ':app'
+include ':guidelayout'
