@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:background="@android:color/darker_gray">
+
+    <TextView
+        android:id="@+id/tvGotIt2"
+        android:layout_width="104dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_know_bg"
+        android:gravity="center"
+        android:text="我知道了"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="42.5dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/shape_task_bg"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="发言一次，完成任务2"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="96dp"
+        android:src="@drawable/ic_live_touch_down" />
+
+</FrameLayout>
