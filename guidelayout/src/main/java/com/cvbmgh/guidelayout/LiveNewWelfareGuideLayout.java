@@ -10,11 +10,13 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,8 +80,7 @@ public class LiveNewWelfareGuideLayout extends FrameLayout {
         PorterDuffXfermode xfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         mPaint.setXfermode(xfermode);
 
-        //设置画笔遮罩滤镜,可以传入BlurMaskFilter或EmbossMaskFilter，前者为模糊遮罩滤镜而后者为浮雕遮罩滤镜
-        //这个方法已经被标注为过时的方法了，如果你的应用启用了硬件加速，你是看不到任何阴影效果的
+        //设置画笔遮罩滤镜(发光效果)
         //mPaint.setMaskFilter(new BlurMaskFilter(10, BlurMaskFilter.Blur.INNER));
         //关闭当前view的硬件加速
         setLayerType(LAYER_TYPE_SOFTWARE, null);
@@ -106,7 +107,7 @@ public class LiveNewWelfareGuideLayout extends FrameLayout {
         rectF1.bottom = view1Rect.bottom + padding;
         point1 = new Point();
         Rect viewFollowRect = getLocationInView(parent, viewFollow);
-        point1.x = viewFollowRect.left + viewFollowRect.width() / 2 + offset;
+        point1.x = viewFollowRect.left + viewFollowRect.width() / 2;
         point1.y = viewFollowRect.bottom - dp2px(3);
 
         //计算高亮区域2和手指头的坐标
@@ -117,7 +118,7 @@ public class LiveNewWelfareGuideLayout extends FrameLayout {
         rectF2.right = view2Rect.right + padding;
         rectF2.bottom = view2Rect.bottom + padding;
         point2 = new Point();
-        point2.x = view2Rect.left + view2Rect.width() / 2 + offset;
+        point2.x = view2Rect.left + view2Rect.width() / 2;
         point2.y = view2Rect.top + dp2px(8);
 
         setOnClickListener(new OnClickListener() {
@@ -180,18 +181,30 @@ public class LiveNewWelfareGuideLayout extends FrameLayout {
         super.onLayout(changed, left, top, right, bottom);
 
         FrameLayout.LayoutParams guideView1Lp = (FrameLayout.LayoutParams) guideView1.getLayoutParams();
-        int guideView1LeftMargin = point1.x - guideView1.getMeasuredWidth() / 2;
+        int guideView1LeftMargin = point1.x - guideView1.getMeasuredWidth() / 2 + offset;
         if (guideView1LeftMargin < rectF1LeftMargin) {
             guideView1LeftMargin = rectF1LeftMargin;
+            //移动手指的位置
+            ImageView ivThumb1 = guideView1.findViewById(R.id.ivThumb1);
+            FrameLayout.LayoutParams flp = (LayoutParams) ivThumb1.getLayoutParams();
+            flp.gravity = Gravity.START;
+            flp.leftMargin = point1.x - guideView1LeftMargin - ivThumb1.getMeasuredWidth() / 2 + offset;
+
         }
         guideView1Lp.leftMargin = guideView1LeftMargin;
         guideView1Lp.topMargin = point1.y;
         guideView1.requestLayout();
 
         FrameLayout.LayoutParams guideView2Lp = (FrameLayout.LayoutParams) guideView2.getLayoutParams();
-        int guideView2LeftMargin = point2.x - guideView2.getMeasuredWidth() / 2;
+        int guideView2LeftMargin = point2.x - guideView2.getMeasuredWidth() / 2 + offset;
         if (guideView2LeftMargin < rectF2LeftMargin) {
             guideView2LeftMargin = rectF2LeftMargin;
+            //移动手指的位置
+            ImageView ivThumb2 = guideView2.findViewById(R.id.ivThumb2);
+            FrameLayout.LayoutParams flp = (LayoutParams) ivThumb2.getLayoutParams();
+            flp.gravity = Gravity.START;
+            flp.leftMargin = point2.x - guideView2LeftMargin - ivThumb2.getMeasuredWidth() / 2 + offset;
+
         }
         guideView2Lp.leftMargin = guideView2LeftMargin;
         guideView2Lp.topMargin = point2.y - guideView2.getMeasuredHeight();

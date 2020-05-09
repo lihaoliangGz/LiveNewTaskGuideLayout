@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvInputMsg;
     private TextView tvFollow;
     private ImageView ivZPB;
+    private ImageView ivServer;
     private TextView tvPraiseNum;
 
     private LiveNewWelfareGuideLayout guideLayout;
@@ -36,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
         tvInputMsg = findViewById(R.id.tvInputMsg);
         tvFollow = findViewById(R.id.tvFollow);
         ivZPB = findViewById(R.id.ivZPB);
+        ivServer = findViewById(R.id.ivService);
         tvPraiseNum = findViewById(R.id.tvPraiseNum);
 
         tvRoomName.setText("王");
-        tvOnlineCount.setText("1人在线");
+        tvOnlineCount.setText("123人在线");
         tvPraiseNum.setText("9812395");
         ivZPB.setVisibility(View.VISIBLE);
 
-        //ivZPB.setVisibility(View.GONE);
+        ivZPB.setVisibility(View.GONE);
+        ivServer.setVisibility(View.GONE);
 
         root.post(new Runnable() {
             @Override
